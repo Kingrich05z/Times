@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIME & TREND SÉNÉGAL | Boutique de Maillots</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            DEFAULT: '#D4AF37',
+                            light: '#F3E5AB',
+                            dark: '#AA820A',
+                            hover: '#C5A059'
+                        },
+                        darkbg: '#0A0A0C',
+                        darkcard: '#141418',
+                        darkborder: '#2A2A32'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Cinzel', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body class="bg-gray-100 text-gray-900 dark:bg-darkbg dark:text-gray-100 transition-colors duration-300 min-h-screen flex flex-col font-sans">
+
+    <div id="splash-screen" class="splash-screen" aria-live="polite">
+        <div class="splash-logo-wrap">
+            <div class="splash-logo">TT</div>
+            <div class="splash-text">
+                <span>TIME & TREND</span>
+                <small>SÉNÉGAL</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-40 bg-white/90 dark:bg-darkbg/90 backdrop-blur-md border-b border-gray-200 dark:border-darkborder transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Brand Logo (TT Stylized) -->
+                <a href="#" onclick="openAdminModal(); return false;" class="flex items-center space-x-3 group cursor-pointer" aria-label="Accéder à l'espace administrateur">
+                    <div class="w-12 h-12 rounded-lg bg-black flex items-center justify-center border border-gold shadow-md group-hover:scale-105 transition-transform">
+                        <svg class="w-8 h-8 text-gold" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M25 25 H55 V35 H45 V80 H35 V35 H25 V25 Z" fill="url(#gold-grad)"/>
+                            <path d="M45 38 H80 V47 H67 V85 H56 V47 H45 V38 Z" fill="url(#gold-grad)"/>
+                            <path d="M60 30 Q75 20 85 28" stroke="url(#gold-grad)" stroke-width="4" stroke-linecap="round" fill="none"/>
+                            <defs>
+                                <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#FFF099"/>
+                                    <stop offset="50%" stop-color="#D4AF37"/>
+                                    <stop offset="100%" stop-color="#AA820A"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="block text-xl font-serif font-extrabold tracking-wider gold-gradient-text uppercase leading-tight">TIME & TREND</span>
+                        <span class="block text-xs font-semibold tracking-widest text-gray-500 dark:text-gray-400 uppercase -mt-1">SÉNÉGAL</span>
+                    </div>
+                </a>
+
+                <!-- Actions Right (Dark Mode Toggle & Cart/WhatsApp Info) -->
+                <div class="flex items-center space-x-4">
+                    <!-- Dark/Light Theme Switcher -->
+                    <button id="theme-toggle" onclick="toggleDarkMode()" class="p-2.5 rounded-full bg-gray-200 dark:bg-darkcard border border-gray-300 dark:border-darkborder text-gray-700 dark:text-gold hover:scale-110 transition">
+                        <i id="theme-toggle-dark-icon" class="fa-solid fa-moon text-lg hidden"></i>
+                        <i id="theme-toggle-light-icon" class="fa-solid fa-sun text-lg"></i>
+                    </button>
+
+                    <!-- Cart Summary Button -->
+                    <button onclick="openCartModal()" class="relative p-2.5 rounded-full bg-gold/10 border border-gold/40 text-gold hover:bg-gold hover:text-black transition">
+                        <i class="fa-solid fa-cart-shopping text-lg"></i>
+                        <span id="cart-badge" class="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </button>
+
+                    <!-- Mobile Menu Button -->
+                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-gray-700 dark:text-white">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Nav -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200 dark:border-darkborder bg-white dark:bg-darkbg px-4 pt-3 pb-6">
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow">
+        
+        <!-- SECTION CATALOG / MAIN SITE -->
+        <div id="catalog-section">
+            <!-- Hero Banner -->
+            <section class="relative bg-black text-white py-20 px-4 overflow-hidden border-b border-gold/20">
+                <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gold/20 via-transparent to-transparent opacity-60"></div>
+                
+                <div class="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
+                    <div class="max-w-2xl text-center md:text-left">
+                        <span class="inline-block bg-gold/20 border border-gold/50 text-gold px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-4">
+                            Sénégal • Collection Officielle 2024/2025
+                        </span>
+                        <h1 class="text-4xl sm:text-6xl font-serif font-extrabold leading-tight mb-6">
+                            L'Élégance du Sport à <span class="gold-gradient-text">Chaque Maillot</span>.
+                        </h1>
+                        <p class="text-gray-300 text-lg mb-8 max-w-xl">
+                            Commandez les plus beaux maillots de football de haute qualité au Sénégal avec livraison rapide direct à domicile via WhatsApp.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                            <a href="#maillots-section" class="gold-button-gradient text-black font-bold px-8 py-4 rounded-xl flex items-center justify-center space-x-2">
+                                <span>Voir nos Maillots</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                            <a href="https://wa.me/221766840494" target="_blank" class="bg-darkcard border border-gold/40 text-gold hover:bg-gold/10 font-semibold px-8 py-4 rounded-xl flex items-center justify-center space-x-2 transition">
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
+                                <span>Contact direct</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Highlight Featured Item Badge -->
+                    <div class="relative w-full max-w-sm">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-gold to-yellow-600 rounded-2xl blur opacity-30 animate-pulse"></div>
+                        <div id="best-seller-card" onclick="openBestSellerProduct()" class="relative bg-darkcard p-6 rounded-2xl border border-gold/40 shadow-2xl text-center cursor-pointer hover:border-gold transition-all duration-300">
+                            <span class="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">Best Seller</span>
+                            <h3 id="best-seller-title" class="text-xl font-bold text-white mt-1">Chargement...</h3>
+                            <p id="best-seller-price" class="text-gold font-bold text-2xl my-2">0 FCFA</p>
+                            <p id="best-seller-sizes" class="text-xs text-gray-400">Tailles disponibles: -</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Products Catalog Grid Section -->
+            <section id="maillots-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 border-b border-gray-200 dark:border-darkborder pb-6">
+                    <div>
+                        <h2 class="text-3xl font-serif font-bold text-gray-900 dark:text-white">Nos Maillots Disponibles</h2>
+                        <p class="text-gray-500 dark:text-gray-400 mt-2">Sélectionnez la taille et le modèle de votre choix.</p>
+                    </div>
+                    
+                    <!-- Filter Tags -->
+                    <div class="flex flex-wrap gap-2 mt-4 md:mt-0">
+                        <button onclick="filterCategory('all')" class="cat-btn active px-4 py-2 text-sm rounded-lg border border-gold bg-gold text-black font-semibold">Tous</button>
+                        <button onclick="filterCategory('Clubs')" class="cat-btn px-4 py-2 text-sm rounded-lg border border-gray-300 dark:border-darkborder hover:border-gold transition">Clubs</button>
+                        <button onclick="filterCategory('Nations')" class="cat-btn px-4 py-2 text-sm rounded-lg border border-gray-300 dark:border-darkborder hover:border-gold transition">Nations</button>
+                    </div>
+                </div>
+
+                <button id="scroll-top-button" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" class="scroll-top-btn" aria-label="Retour en haut">
+                    <i class="fa-solid fa-arrow-up"></i>
+                    <span>Haut</span>
+                </button>
+
+                <!-- Dynamic Grid for Products -->
+                <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Products will be dynamically populated here via JS -->
+                </div>
+            </section>
+
+            <!-- Features / Trust Section -->
+            <section class="bg-gray-50 dark:bg-darkcard py-12 border-t border-gray-200 dark:border-darkborder transition-colors">
+                <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="p-6 rounded-xl bg-white dark:bg-darkbg border border-gray-200 dark:border-darkborder">
+                        <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-gold/10 text-gold flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-truck-fast"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Livraison Rapide Dakar & Régions</h4>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Recevez votre maillot à domicile partout au Sénégal.</p>
+                    </div>
+                    <div class="p-6 rounded-xl bg-white dark:bg-darkbg border border-gray-200 dark:border-darkborder">
+                        <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-gold/10 text-gold flex items-center justify-center text-xl">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Commande Facile WhatsApp</h4>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Passez vos commandes directement via notre WhatsApp officiel.</p>
+                    </div>
+                    <div class="p-6 rounded-xl bg-white dark:bg-darkbg border border-gray-200 dark:border-darkborder">
+                        <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-gold/10 text-gold flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-shirt"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Qualité Premium Garantit</h4>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Maillots de football haute définition, tissu respirant & durable.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- SECTION ADMIN DASHBOARD (Hidden by default) -->
+        <div id="admin-section" class="hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div class="flex justify-between items-center mb-8 border-b border-gray-200 dark:border-darkborder pb-4">
+                <div>
+                    <h2 class="text-3xl font-serif font-bold text-gold">Espace d'Administration</h2>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Gestion des Maillots et du Catalogue (CRUD)</p>
+                </div>
+                <button onclick="logoutAdmin()" class="bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 rounded-lg text-sm transition">
+                    <i class="fa-solid fa-right-from-bracket mr-2"></i>Déconnexion
+                </button>
+            </div>
+
+            <!-- Admin Actions & Add Button -->
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-bold">Liste des Maillots (<span id="admin-item-count">0</span>)</h3>
+                <button onclick="openArticleModal()" class="gold-button-gradient text-black font-bold px-5 py-2.5 rounded-xl text-sm flex items-center space-x-2">
+                    <i class="fa-solid fa-plus"></i>
+                    <span>Ajouter un Maillot</span>
+                </button>
+            </div>
+
+            <!-- Articles Management Table -->
+            <div class="bg-white dark:bg-darkcard rounded-2xl border border-gray-200 dark:border-darkborder overflow-hidden shadow-lg">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm">
+                        <thead class="bg-gray-100 dark:bg-darkbg text-gold uppercase text-xs font-bold border-b border-gray-200 dark:border-darkborder">
+                            <tr>
+                                <th class="p-4">Image</th>
+                                <th class="p-4">Nom du Maillot</th>
+                                <th class="p-4">Prix (FCFA)</th>
+                                <th class="p-4">Tailles Dispo</th>
+                                <th class="p-4">Catégorie</th>
+                                <th class="p-4 text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-table-body" class="divide-y divide-gray-200 dark:divide-darkborder">
+                            <!-- Populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- MODAL: FULLSCREEN PRODUCT DETAIL VIEWER -->
+    <div id="fullscreen-modal" class="fixed inset-0 z-50 hidden bg-black/95 backdrop-blur-md overflow-y-auto flex items-center justify-center p-4">
+        <button onclick="closeFullscreenModal()" class="modal-close-btn" aria-label="Fermer la vue produit">
+            &times;
+        </button>
+
+        <div class="max-w-5xl w-full bg-white dark:bg-darkcard border border-gray-200 dark:border-darkborder rounded-3xl overflow-hidden shadow-2xl my-8">
+            <div class="grid grid-cols-1 md:grid-cols-2">
+                <!-- Image Fullscreen Showcase with Zoom Effect -->
+                <div class="relative bg-gray-900 p-6 flex items-center justify-center min-h-[350px] md:min-h-[500px]">
+                    <img id="modal-img" src="" alt="Maillot" class="max-h-[450px] w-auto object-contain transition-transform duration-300 hover:scale-110">
+                    <span id="modal-badge" class="absolute top-4 left-4 bg-gold text-black text-xs font-bold px-3 py-1 rounded-full uppercase">
+                        Haute Qualité
+                    </span>
+                </div>
+
+                <!-- Product Detail Info & Order Form -->
+                <div class="p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span id="modal-category" class="text-xs uppercase tracking-widest text-gold font-semibold">Marseille</span>
+                                <h2 id="modal-title" class="text-3xl font-bold mt-1 text-gray-900 dark:text-white">Maillots Bayern Munich</h2>
+                            </div>
+                        </div>
+
+                        <div class="my-4 flex items-baseline gap-3 flex-wrap">
+                            <span id="modal-old-price" class="old-price-text hidden">8 000 FCFA</span>
+                            <span id="modal-price" class="text-3xl font-extrabold text-gold">6 000 FCFA</span>
+                        </div>
+
+                        <p id="modal-desc" class="text-gray-600 dark:text-gray-300 text-sm mb-6 leading-relaxed">
+                            Maillots Bayern Munich de qualité supérieure avec blason brodé et tissu ultra-respirant. Parfait pour le sport ou un look sportswear élégant.
+                        </p>
+
+                        <!-- Size Selector -->
+                        <div class="mb-6">
+                            <label class="block text-sm font-semibold mb-2">Choisir la Taille Disponibles :</label>
+                            <div id="modal-sizes-container" class="flex flex-wrap gap-3">
+                                <!-- Sizes dynamically rendered here -->
+                            </div>
+                        </div>
+
+                        <!-- Quantity Selector -->
+                        <div class="mb-6">
+                            <label class="block text-sm font-semibold mb-2">Quantité :</label>
+                            <div class="flex items-center space-x-3 w-32 border border-gray-300 dark:border-darkborder rounded-xl p-1 bg-gray-50 dark:bg-darkbg">
+                                <button onclick="changeQuantity(-1)" class="w-8 h-8 rounded-lg bg-gray-200 dark:bg-darkcard text-bold hover:bg-gold hover:text-black font-bold transition">-</button>
+                                <span id="modal-quantity" class="flex-1 text-center font-bold">1</span>
+                                <button onclick="changeQuantity(1)" class="w-8 h-8 rounded-lg bg-gray-200 dark:bg-darkcard text-bold hover:bg-gold hover:text-black font-bold transition">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- WhatsApp Order CTA -->
+                    <div class="space-y-3 pt-4 border-t border-gray-200 dark:border-darkborder">
+                        <button onclick="addToCart()" class="w-full bg-gold hover:bg-yellow-400 text-black font-bold py-3 rounded-xl flex items-center justify-center space-x-3 shadow-lg transition">
+                            <i class="fa-solid fa-cart-plus text-lg"></i>
+                            <span class="text-base uppercase tracking-wider">Ajouter au panier</span>
+                        </button>
+                        <button onclick="orderOnWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 rounded-xl flex items-center justify-center space-x-3 shadow-lg transition">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            <span class="text-base uppercase tracking-wider">Commander sur WhatsApp</span>
+                        </button>
+                        <p class="text-xs text-center text-gray-500">Un agent TIME & TREND traitera votre commande instantanément.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: CART & DIRECT ORDER OVERLAY -->
+    <div id="cart-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="max-w-md w-full bg-white dark:bg-darkcard border border-gray-200 dark:border-darkborder rounded-2xl p-6 shadow-2xl relative">
+            <button onclick="closeCartModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">&times;</button>
+            <h3 class="text-xl font-bold font-serif text-gold mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-cart-shopping"></i> Mon Panier
+            </h3>
+
+            <div id="cart-items-list" class="space-y-4 max-h-60 overflow-y-auto mb-4 divide-y divide-gray-200 dark:divide-darkborder">
+                <!-- Cart items JS -->
+            </div>
+
+            <div class="border-t border-gray-200 dark:border-darkborder pt-4">
+                <div class="flex justify-between font-bold text-lg mb-4">
+                    <span>Total :</span>
+                    <span id="cart-total-price" class="text-gold">0 FCFA</span>
+                </div>
+                <button onclick="sendCartToWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <span>Valider ma commande sur WhatsApp</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: ADMIN LOGIN -->
+    <div id="login-modal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="max-w-sm w-full bg-white dark:bg-darkcard border border-gold/40 rounded-2xl p-6 shadow-2xl relative">
+            <button onclick="closeLoginModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">&times;</button>
+            
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 bg-black border border-gold rounded-xl mx-auto flex items-center justify-center mb-2">
+                    <i class="fa-solid fa-shield-halved text-gold text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gold font-serif">Connexion Admin</h3>
+                <p class="text-xs text-gray-400">Accès restreint aux gérants de la boutique</p>
+            </div>
+
+            <form onsubmit="handleAdminLogin(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold mb-1">Mot de passe Admin</label>
+                    <input type="password" id="admin-pass-input" value="072005" required class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-darkbg border border-gray-300 dark:border-darkborder focus:border-gold outline-none text-sm">
+                </div>
+                <button type="submit" class="w-full gold-button-gradient text-black font-bold py-3 rounded-xl text-sm">
+                    Se Connecter
+                </button>
+                <p id="admin-login-error" class="hidden text-xs text-center mt-2 text-red-500">Mot de passe incorrect.</p>
+                <p class="text-xs text-center text-gray-400">Mot de passe : <span class="text-gold font-mono">072005</span></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL: ADD / EDIT ARTICLE (CRUD) -->
+    <div id="article-modal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="max-w-lg w-full bg-white dark:bg-darkcard border border-gray-200 dark:border-darkborder rounded-2xl p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeArticleModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">&times;</button>
+            
+            <h3 id="article-modal-title" class="text-xl font-bold text-gold font-serif mb-4">Ajouter un nouveau Maillot</h3>
+
+            <form id="article-form" onsubmit="saveArticle(event)" class="space-y-4">
+                <input type="hidden" id="article-id">
+
+                <div>
+                    <label class="block text-xs font-semibold mb-1">Nom / Description courte du Maillot *</label>
+                    <input type="text" id="article-title" placeholder="ex: Maillots Bayern Munich" required class="w-full px-4 py-2.5 rounded-xl bg-gray-50 dark:bg-darkbg border border-gray-300 dark:border-darkborder focus:border-gold outline-none text-sm">
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold mb-1">Prix (FCFA) *</label>
+                        <input type="number" id="article-price" placeholder="6000" required class="w-full px-4 py-2.5 rounded-xl bg-gray-50 dark:bg-darkbg border border-gray-300 dark:border-darkborder focus:border-gold outline-none text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold mb-1">Prix barré (optionnel)</label>
+                        <input type="number" id="article-old-price" placeholder="8000" class="w-full px-4 py-2.5 rounded-xl bg-gray-50 dark:bg-darkbg border border-gray-300 dark:border-darkborder focus:border-gold outline-none text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold mb-1">Catégorie</label>
+                        <select id="article-category" class="w-full px-4 py-2.5 rounded-xl bg-gray-50 dark:bg-darkbg border border-gray-300 dark:border-darkborder focus:border-gold outline-none text-sm">
+                            <option value="Clubs">Clubs</option>
+                            <option value="Nations">Nations</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold mb-1">Tailles disponibles (séparées par une virgule)</label>
+                    <input type="text" id="article-sizes" value="M, L, XL, XXL" placeholder="M, L, XL, XXL" class="w-full px-4 py-2.5 rounded-xl bg-gray-50 dark:bg-darkbg border border-gray-300 dark:border-darkborder focus:border-gold outline-none text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold mb-1">Image du maillot</label>
+                    <div class="rounded-xl border border-gray-300 dark:border-darkborder bg-gray-50 dark:bg-darkbg p-3">
+                        <input type="file" id="article-image-file" accept="image/*" capture="environment" class="block w-full text-xs text-gray-600 dark:text-gray-300 file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:bg-gold file:text-black file:font-semibold file:cursor-pointer">
+                        <div id="article-image-preview" class="mt-3 hidden rounded-xl border border-dashed border-gold/50 bg-black/5 p-2">
+                            <img id="article-image-preview-img" src="" alt="Aperçu de l'image" class="h-28 w-full object-contain rounded-lg bg-black">
+                        </div>
+                        <button type="button" onclick="resetArticleImage()" class="mt-3 text-xs text-gray-400 hover:text-gold transition">Utiliser l'image par défaut</button>
+                        <input type="hidden" id="article-image" value="">
+                    </div>
+                    <p class="text-[10px] text-gray-400 mt-1">Privilégiez les photos prises directement depuis votre mobile.</p>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold mb-1">Description détaillée</label>
+                    <textarea id="article-desc" rows="3" placeholder="Description du maillot..." class="w-full px-4 py-2.5 rounded-xl bg-gray-50 dark:bg-darkbg border border-gray-300 dark:border-darkborder focus:border-gold outline-none text-sm"></textarea>
+                </div>
+
+                <div class="pt-2 flex justify-end gap-3">
+                    <button type="button" onclick="closeArticleModal()" class="px-4 py-2 rounded-xl text-sm border border-gray-300 dark:border-darkborder">Annuler</button>
+                    <button type="submit" class="gold-button-gradient text-black font-bold px-6 py-2 rounded-xl text-sm">Enregistrer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- FOOTER SECTION -->
+    <footer id="site-footer" class="bg-black text-white border-t border-gold/30 pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+                
+                <!-- Brand Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-black flex items-center justify-center border border-gold">
+                            <span class="text-gold font-serif font-extrabold text-xl">TT</span>
+                        </div>
+                        <span class="text-xl font-serif font-bold gold-gradient-text">TIME & TREND SÉNÉGAL</span>
+                    </div>
+                    <p class="text-gray-400 text-sm max-w-sm mb-4">
+                        La référence ultime au Sénégal pour l'achat de vos maillots de foot tendance, élégants et de haute qualité.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.tiktok.com/@_n.i.o.k.h.o.r_?_r=1&_t=ZS-9AHiXCnqmXc" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-darkcard border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-black transition"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/time_and_trend_senegal?stkn=MW9lOWY0ZXNwdXE1ZQ==" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-darkcard border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-black transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.snapchat.com/add/timeandtrend221?share_id=KpH0UemiA-Q&locale=fr-FR" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-darkcard border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-black transition"><i class="fa-brands fa-snapchat"></i></a>
+                        <a href="https://wa.me/221766840494" target="_blank" class="w-9 h-9 rounded-full bg-darkcard border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-black transition"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-gold font-bold mb-4 font-serif text-sm uppercase tracking-wider">Contact Sénégal</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-location-dot text-gold"></i>
+                            <span>Dakar, Sénégal</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-brands fa-whatsapp text-gold"></i>
+                            <span>+221 76 684 04 94</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Charismatic Powered By King_Rich Footer Signature -->
+            <div class="border-t border-gray-900 pt-6 text-center">
+                <div class="flex justify-center mb-3">
+                    <img src="flag-sn.jpg" alt="Drapeau du Sénégal" title="Sénégal" class="w-12 h-auto rounded-md border border-gold/40 shadow-lg shadow-gold/15 object-cover" />
+                </div>
+                <p class="text-xs text-gray-500 mb-2">&copy; 2025 TIME & TREND SÉNÉGAL. Tous droits réservés.</p>
+                <div class="inline-block py-1.5 px-6 rounded-full bg-darkcard/80 border border-gold/30 backdrop-blur-sm">
+                    <span style='font-family: serif; letter-spacing: 2px; text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); color: #D4AF37; font-weight: 700; font-size: 0.9rem;'>
+                        Powered by King_Rich
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
